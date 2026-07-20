@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DORMITORATION - Local Database Test</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --dark: #1a1a2e;
+            --deeper: #16213e;
+            --card-bg: #0f3460;
+            --light: #f5f6fa;
+            --muted: #a0a3b1;
+            --primary: #6c5ce7;
+            --accent: #00d2ff;
+            --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        body {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: radial-gradient(circle at center, var(--deeper) 0%, var(--dark) 100%);
+            color: var(--light);
+            padding: 20px;
+        }
+        .login-card {
+            background: var(--card-bg);
+            border: 1px solid rgba(108, 92, 231, 0.2);
+            padding: 40px;
+            border-radius: 16px;
+            width: 100%;
+            max-width: 420px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+        }
+        .db-status {
+            font-size: 0.75rem;
+            background: rgba(0,0,0,0.3);
+            padding: 6px 12px;
+            border-radius: 20px;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-bottom: 20px;
+            color: var(--accent);
+        }
+        .logo h2 { font-size: 1.8rem; font-weight: 800; margin-bottom: 4px; }
+        .logo h2 span { background: var(--gradient); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .logo p { font-size: 0.8rem; color: var(--muted); margin-bottom: 32px; }
+        .input-group { margin-bottom: 24px; }
+        .input-group label { display: block; font-size: 0.85rem; margin-bottom: 8px; color: var(--muted); }
+        .input-wrapper { position: relative; display: flex; align-items: center; }
+        .input-wrapper i { position: absolute; left: 16px; color: var(--primary); }
+        .input-wrapper input {
+            width: 100%; padding: 14px 16px 14px 44px;
+            background: rgba(26, 26, 46, 0.6); border: 1px solid rgba(108, 92, 231, 0.2);
+            border-radius: 8px; color: white; outline: none;
+        }
+        .input-wrapper input:focus { border-color: var(--accent); }
+        .btn-login {
+            width: 100%; padding: 14px; background: var(--gradient); color: white;
+            border: none; border-radius: 8px; font-weight: 600; cursor: pointer;
+            display: flex; justify-content: center; align-items: center; gap: 10px;
+        }
+        .error-message { color: #ff6b6b; font-size: 0.85rem; margin-bottom: 16px; text-align: center; min-height: 20px; }
+        .success-message { color: #00c851; font-size: 0.85rem; margin-bottom: 16px; text-align: center; }
+    </style>
+</head>
+<body>
+
+    <div class="login-card">
+        <div class="db-status" id="dbStatus">
+            <i class="fas fa-database"></i> <span id="dbStatusText">Initializing Database...</span>
+        </div>
+        
+        <div class="logo">
+            <h2>DORMITORATION <span>TEST</span></h2>
+            <p>Local Database Integration Environment</p>
+        </div>
+        
+        <form id="loginForm">
+            <div class="input-group">
+                <label for="username">Test Identity ID</label>
+                <div class="input-wrapper">
+                    <i class="fas fa-user"></i>
+                    <input type="text" id="username" required placeholder="admin01 or student01">
+                </div>
+            </div>
+
+            <div class="input-group">
+                <label for="password">Password</label>
+                <div class="input-wrapper">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="password" required placeholder="••••••••">
+                </div>
+            </div>
+
+            <div id="errorMessage" class="error-message"></div>
+            <div id="successMessage" class="success-message"></div>
+
+            <button type="submit" class="btn-login" id="submitBtn">
+                <span>Run Auth Query</span>
+                <i class="fas fa-terminal"></i>
+            </button>
+        </form>
+    </div>
+
+    <!-- Load scripts in order -->
+    <script src="test_auth.js"></script>
+</body>
+</html>
