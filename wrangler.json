@@ -1,0 +1,12 @@
+{
+  "name": "cloudtester",
+  "main": "cloudflare_worker.js",
+  "compatibility_date": "2024-03-01",
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "webtest",
+      "database_id": "de025e80-3847-4be6-bee7-b4639c7b3277"
+    }
+  ]
+}
