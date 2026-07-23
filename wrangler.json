@@ -8,5 +8,6 @@
       "database_name": "webtest",
       "database_id": "de025e80-3847-4be6-bee7-b4639c7b3277"
     }
-  ]
+  ],
+  "assets": { "directory": "./" }
 }
