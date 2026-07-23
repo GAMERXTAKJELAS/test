@@ -1,5 +1,5 @@
 // Set your Cloudflare Worker URL here
-const WORKER_URL = "https://cloudtester.syamsulock0457.workers.dev";
+const WORKER_URL = "https://cloud-login-tester.syamsulock0457.workers.dev";
 
 document.addEventListener("DOMContentLoaded", () => {
     checkDatabaseConnection();
